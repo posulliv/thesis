@@ -1,0 +1,49 @@
+\contentsline {chapter}{\relax \fontsize {12}{14.5}\selectfont \abovedisplayskip 12\p@ plus3\p@ minus7\p@ \abovedisplayshortskip \z@ plus3\p@ \belowdisplayshortskip 6.5\p@ plus3.5\p@ minus3\p@ \belowdisplayskip \abovedisplayskip \let \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ List of Figures}{vi}
+\contentsline {chapter}{List of Abbreviations}{viii}
+\contentsline {chapter}{\numberline {1}Introduction}{1}
+\contentsline {section}{\numberline {1.1}Source of Nonlinearity in an Optical Fiber}{1}
+\contentsline {section}{\numberline {1.2}Physics of Pulse Propagation}{3}
+\contentsline {section}{\numberline {1.3}Numerical Pulse Propagation}{6}
+\contentsline {section}{\numberline {1.4}Experimental Pulse Diagnostics}{7}
+\contentsline {section}{\numberline {1.5}Group Velocity Dispersion}{7}
+\contentsline {section}{\numberline {1.6}Self-Phase Modulation}{8}
+\contentsline {section}{\numberline {1.7}Four-wave-mixing}{9}
+\contentsline {section}{\numberline {1.8}Cross-Phase Modulation}{10}
+\contentsline {section}{\numberline {1.9}Stimulated Inelastic Scattering}{11}
+\contentsline {section}{\numberline {1.10}Outline of Thesis}{12}
+\contentsline {section}{\numberline {1.11}Theorems}{14}
+\contentsline {section}{\numberline {1.12}Axioms}{14}
+\contentsline {section}{\numberline {1.13}Tables}{14}
+\contentsline {subsection}{\numberline {1.13.1}Adding Extra Space between Text and Horizontal Lines}{15}
+\contentsline {section}{\numberline {1.14}Figures}{17}
+\contentsline {subsection}{\numberline {1.14.1}Numbering Figures}{23}
+\contentsline {subsubsection}{\numberline {1.14.1.1}This is a Subsubsection}{23}
+\contentsline {section}{\numberline {1.15}Short Titles}{23}
+\contentsline {section}{\numberline {1.16}Figures on Text Page}{24}
+\contentsline {section}{\numberline {1.17}Wrapping Text around Figure}{25}
+\contentsline {section}{\numberline {1.18}LaTeX -- A Typesetting Program}{26}
+\contentsline {section}{\numberline {1.19}Using Bibtex}{26}
+\contentsline {section}{\numberline {1.20}APS Physical Review Style and Notation Guide}{27}
+\contentsline {chapter}{\numberline {2}Stochastic Four-Wave-Mixing}{28}
+\contentsline {section}{\numberline {2.1}Overview}{28}
+\contentsline {section}{\numberline {2.2}Experimental and Computational Background}{30}
+\contentsline {section}{\numberline {2.3}Stochastic NLSE Model}{32}
+\contentsline {section}{\numberline {2.4}Discussion}{53}
+\contentsline {section}{\numberline {2.5}Conclusions}{56}
+\contentsline {chapter}{\numberline {3}Stochastic Four-Wave-Mixing}{59}
+\contentsline {section}{\numberline {3.1}Overview}{59}
+\contentsline {section}{\numberline {3.2}Experimental and Computational Background}{61}
+\contentsline {section}{\numberline {3.3}Stochastic NLSE Model}{63}
+\contentsline {section}{\numberline {3.4}Discussion}{84}
+\contentsline {section}{\numberline {3.5}Conclusions}{87}
+\contentsline {chapter}{\numberline {A}Overview}{90}
+\contentsline {section}{\numberline {A.1}Experimental and Computational Background}{92}
+\contentsline {section}{\numberline {A.2}Stochastic NLSE Model}{94}
+\contentsline {section}{\numberline {A.3}Discussion}{115}
+\contentsline {section}{\numberline {A.4}Conclusions}{118}
+\contentsline {chapter}{\numberline {B}Overview}{121}
+\contentsline {section}{\numberline {B.1}Experimental and Computational Background}{123}
+\contentsline {section}{\numberline {B.2}Stochastic NLSE Model}{125}
+\contentsline {section}{\numberline {B.3}Discussion}{146}
+\contentsline {section}{\numberline {B.4}Conclusions}{149}
+\contentsline {chapter}{\relax \fontsize {12}{14.5}\selectfont \abovedisplayskip 12\p@ plus3\p@ minus7\p@ \abovedisplayshortskip \z@ plus3\p@ \belowdisplayshortskip 6.5\p@ plus3.5\p@ minus3\p@ \belowdisplayskip \abovedisplayskip \let \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ Bibliography}{152}
