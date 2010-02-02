@@ -1,25 +1,21 @@
 \contentsline {chapter}{\relax \fontsize {12}{14.5}\selectfont \abovedisplayskip 12\p@ plus3\p@ minus7\p@ \abovedisplayshortskip \z@ plus3\p@ \belowdisplayshortskip 6.5\p@ plus3.5\p@ minus3\p@ \belowdisplayskip \abovedisplayskip \let \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ List of Figures}{iv}
-\contentsline {chapter}{List of Abbreviations}{vi}
+\contentsline {chapter}{List of Abbreviations}{v}
 \contentsline {chapter}{\numberline {1}Introduction}{1}
-\contentsline {chapter}{\numberline {2}Stochastic Four-Wave-Mixing}{2}
-\contentsline {section}{\numberline {2.1}Overview}{2}
-\contentsline {section}{\numberline {2.2}Experimental and Computational Background}{4}
-\contentsline {section}{\numberline {2.3}Stochastic NLSE Model}{6}
-\contentsline {section}{\numberline {2.4}Discussion}{27}
-\contentsline {section}{\numberline {2.5}Conclusions}{30}
-\contentsline {chapter}{\numberline {3}Stochastic Four-Wave-Mixing}{33}
-\contentsline {section}{\numberline {3.1}Overview}{33}
-\contentsline {section}{\numberline {3.2}Experimental and Computational Background}{35}
-\contentsline {section}{\numberline {3.3}Stochastic NLSE Model}{37}
-\contentsline {section}{\numberline {3.4}Discussion}{58}
-\contentsline {section}{\numberline {3.5}Conclusions}{61}
-\contentsline {chapter}{\numberline {A}Overview}{64}
-\contentsline {section}{\numberline {A.1}Experimental and Computational Background}{66}
-\contentsline {section}{\numberline {A.2}Stochastic NLSE Model}{68}
-\contentsline {section}{\numberline {A.3}Discussion}{89}
-\contentsline {section}{\numberline {A.4}Conclusions}{92}
-\contentsline {chapter}{\numberline {B}Overview}{95}
-\contentsline {section}{\numberline {B.1}Experimental and Computational Background}{97}
-\contentsline {section}{\numberline {B.2}Stochastic NLSE Model}{99}
-\contentsline {section}{\numberline {B.3}Discussion}{120}
-\contentsline {section}{\numberline {B.4}Conclusions}{123}
+\contentsline {chapter}{\numberline {2}Related Work}{3}
+\contentsline {chapter}{\numberline {3}Stochastic Four-Wave-Mixing}{4}
+\contentsline {section}{\numberline {3.1}Overview}{4}
+\contentsline {section}{\numberline {3.2}Experimental and Computational Background}{6}
+\contentsline {section}{\numberline {3.3}Stochastic NLSE Model}{8}
+\contentsline {section}{\numberline {3.4}Discussion}{29}
+\contentsline {section}{\numberline {3.5}Conclusions}{32}
+\contentsline {chapter}{\numberline {A}Overview}{35}
+\contentsline {section}{\numberline {A.1}Experimental and Computational Background}{37}
+\contentsline {section}{\numberline {A.2}Stochastic NLSE Model}{39}
+\contentsline {section}{\numberline {A.3}Discussion}{60}
+\contentsline {section}{\numberline {A.4}Conclusions}{63}
+\contentsline {chapter}{\numberline {B}Overview}{66}
+\contentsline {section}{\numberline {B.1}Experimental and Computational Background}{68}
+\contentsline {section}{\numberline {B.2}Stochastic NLSE Model}{70}
+\contentsline {section}{\numberline {B.3}Discussion}{91}
+\contentsline {section}{\numberline {B.4}Conclusions}{94}
+\contentsline {chapter}{\relax \fontsize {12}{14.5}\selectfont \abovedisplayskip 12\p@ plus3\p@ minus7\p@ \abovedisplayshortskip \z@ plus3\p@ \belowdisplayshortskip 6.5\p@ plus3.5\p@ minus3\p@ \belowdisplayskip \abovedisplayskip \let \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ Bibliography}{97}
