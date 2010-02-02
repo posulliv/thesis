@@ -11,3 +11,26 @@ research, buffer overflows continue to be exploited in real world attacks. This 
 buffer overflow defenses provide only partial coverage, and the attacks have adopted to exploit
 problems that are not well defended.
 
+Numerous schemes have been proposed for dealing with buffer overflow attacks. In our eyes, the
+applicability of such schemes depends on a number of factors, including:
+
+\begin{enumerate}
+ \item Ease of use
+ \item Availability
+ \item Robustness
+ \item Applicability to all binaries
+ \item Low overheads
+\end{enumerate}
+
+In addition to a scheme's applicability, the scheme must also satisfy a number of criteria related
+to its effectiveness in regards to what attacks it can prevent, including:
+
+\begin{enumerate}
+ \item Over-writing of the return address stored on the stack
+ \item Over-writing of the old base pointer stored on the stack
+ \item Over-writing of local function pointer variables on the stack
+ \item Over-writing of function pointer parameters on the stack
+\end{enumerate}
+
+In this thesis, we present a scheme which meets the applicability requirements and the criteria for
+a good security scheme as laid out above. 
