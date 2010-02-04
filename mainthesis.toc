@@ -2,20 +2,25 @@
 \contentsline {chapter}{List of Abbreviations}{v}
 \contentsline {chapter}{\numberline {1}Introduction}{1}
 \contentsline {chapter}{\numberline {2}Related Work}{3}
-\contentsline {chapter}{\numberline {3}Stochastic Four-Wave-Mixing}{4}
-\contentsline {section}{\numberline {3.1}Overview}{4}
-\contentsline {section}{\numberline {3.2}Experimental and Computational Background}{6}
-\contentsline {section}{\numberline {3.3}Stochastic NLSE Model}{8}
-\contentsline {section}{\numberline {3.4}Discussion}{29}
-\contentsline {section}{\numberline {3.5}Conclusions}{32}
-\contentsline {chapter}{\numberline {A}Overview}{35}
-\contentsline {section}{\numberline {A.1}Experimental and Computational Background}{37}
-\contentsline {section}{\numberline {A.2}Stochastic NLSE Model}{39}
-\contentsline {section}{\numberline {A.3}Discussion}{60}
-\contentsline {section}{\numberline {A.4}Conclusions}{63}
-\contentsline {chapter}{\numberline {B}Overview}{66}
-\contentsline {section}{\numberline {B.1}Experimental and Computational Background}{68}
-\contentsline {section}{\numberline {B.2}Stochastic NLSE Model}{70}
-\contentsline {section}{\numberline {B.3}Discussion}{91}
-\contentsline {section}{\numberline {B.4}Conclusions}{94}
-\contentsline {chapter}{\relax \fontsize {12}{14.5}\selectfont \abovedisplayskip 12\p@ plus3\p@ minus7\p@ \abovedisplayshortskip \z@ plus3\p@ \belowdisplayshortskip 6.5\p@ plus3.5\p@ minus3\p@ \belowdisplayskip \abovedisplayskip \let \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ Bibliography}{97}
+\contentsline {section}{\numberline {2.1}Catalog of Attack Techniques}{3}
+\contentsline {subsection}{\numberline {2.1.1}Buffer Overflow Attacks}{3}
+\contentsline {subsection}{\numberline {2.1.2}Return-to-libc Attacks}{5}
+\contentsline {section}{\numberline {2.2}Catalog of Defense Techniques}{6}
+\contentsline {subsection}{\numberline {2.2.1}Compile Time Defenses}{6}
+\contentsline {chapter}{\numberline {3}Stochastic Four-Wave-Mixing}{7}
+\contentsline {section}{\numberline {3.1}Overview}{7}
+\contentsline {section}{\numberline {3.2}Experimental and Computational Background}{9}
+\contentsline {section}{\numberline {3.3}Stochastic NLSE Model}{11}
+\contentsline {section}{\numberline {3.4}Discussion}{32}
+\contentsline {section}{\numberline {3.5}Conclusions}{35}
+\contentsline {chapter}{\numberline {A}Overview}{38}
+\contentsline {section}{\numberline {A.1}Experimental and Computational Background}{40}
+\contentsline {section}{\numberline {A.2}Stochastic NLSE Model}{42}
+\contentsline {section}{\numberline {A.3}Discussion}{63}
+\contentsline {section}{\numberline {A.4}Conclusions}{66}
+\contentsline {chapter}{\numberline {B}Overview}{69}
+\contentsline {section}{\numberline {B.1}Experimental and Computational Background}{71}
+\contentsline {section}{\numberline {B.2}Stochastic NLSE Model}{73}
+\contentsline {section}{\numberline {B.3}Discussion}{94}
+\contentsline {section}{\numberline {B.4}Conclusions}{97}
+\contentsline {chapter}{\relax \fontsize {12}{14.5}\selectfont \abovedisplayskip 12\p@ plus3\p@ minus7\p@ \abovedisplayshortskip \z@ plus3\p@ \belowdisplayshortskip 6.5\p@ plus3.5\p@ minus3\p@ \belowdisplayskip \abovedisplayskip \let \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ Bibliography}{100}

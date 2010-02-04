@@ -4,6 +4,100 @@
 
 \chapter{Related Work}
 
+Our work is related to many techniques that attempt to defend against malicious applications and
+vulnerabilities in applications which present attackers with an opportunity to attack. In this
+chapter, we elaborate on some of the pieces of work most closely related to ours. First, we present
+the various attack techniques utilized by attackers that are relevant for this thesis and then we go
+on to present various techniques proposed for mitigating these attack techniques.
+
+\section{Catalog of Attack Techniques}
+
+\subsection{Buffer Overflow Attacks}
+
+A buffer overflow refers to a situation that can occur when a function contains a local bounded
+array, or buffer, and writes into that buffer are not correctly guarded. Since C and C++ compilers
+typically use the stack for local variables as well as parameters, frame pointers, and saved return
+addresses, writes into a buffer that are not correctly guarded may overwrite and corrupt the return
+address stored on the stack. Data copied into the buffer whose length is larger than the buffer's
+size is referred to as a buffer overflow.
+
+If an attacker controls the data used by the function, attackers can exploit buffer overflows and
+change the function's return address to an arbitrary value. In this case, when the function returns,
+the attacker can direct execution to code of their choice. This technique was first described in
+detail by AlephOne in 1996 \cite{}. However, attacks of this kind date back to before 1988 when the
+technique was used in the \begin{em}fingerd\end{em} exploit of the Morris worm.
+
+An example of a function with a buffer overflow vulnerability adopted from \cite{erlingsson-07} follows:
+
+\begin{mylisting}
+\begin{verbatim}
+int is_file_my_file(char *one, char *two)
+{
+  char tmp[MAX_FILE_LEN];
+  strcpy(tmp, one);
+  strcat(tmp, two);
+  return (strcmp(tmp, "/home/posulliv/my_file"));
+}
+\end{verbatim}
+\end{mylisting}
+
+The above (somewhat unrealistic) function compares the concatentation of two input strings against
+\begin{em}/home/posulliv/my\_file\end{em}. If the input strings to the above function can be chosen by an
+attacker, then the attacker can change the program's flow of control by overflowing the
+\begin{em}tmp\end{em} buffer and changing the return address stored on the stack to an address of
+the attacker's choosing.
+
+Commonly, an attacker would choose their input data so that the machine code for an attack payload
+would be present at the modified return address. When the vulnerable function returns, and execution
+of the attack payload begins, the attacker has gained control of the behavior of the target
+software. The attack payload is often called shellcode, since a common goal of an attacker is to
+launch a command line interpreter (referred to as a shell in UNIX like environments) under their
+control.
+
+\subsection{Return-to-libc Attacks}
+
+As an alternative to supplying executable code (referred to as direct code injection), an attacker
+might be able to craft an attack that executes existing machine code (indirect code injection). This
+class of attacks has been referred to as jump-to-libc or return-to-libc (arc injection \cite{} has
+also been used to refer to this class of attacks) because the attack often involves directing
+execution towards machine code in the standard C library (libc) \cite{}. The standard C library is
+often the target for attacks of this type since it is loaded in nearly every UNIX program and it
+contains routines of the sort that are useful for an attacker. This technique was first suggested by
+Solar Designer in 1997 \cite{}. Attacks of this kind can evade defense mechanisms that protect the
+stack such as stack canaries and it is also effective against defenses that only allow memory to be
+writable or executable.
+
+An example of a function vulnerable to such an attack adopted from \cite{erlingsson-07} follows:
+
+\begin{mylisting}
+\begin{verbatim}
+int median(int *data, int len, void *cmp)
+{
+  int tmp[MAX_INTS];
+  /* copy the input integers */
+  memcpy(tmp, data, len * sizeof(int));
+  /* sort the local copy */
+  qsort(tmp, len, sizeof(int), cmp);
+  /* median is in the middle */
+  return tmp[len / 2];
+}
+\end{verbatim}
+\end{mylisting}
+
+The above function is vulnerable to a buffer overflow as outlined in the previous sub-section.
+However, an attacker can also corrupt the comparison function pointer cmp before it is passed to the
+\begin{em}qsort\end{em} library function. If an attacker is able to accomplish this, he/she can gain control of
+execution at the point where the \begin{em}qsort\end{em} function calls its copy of the corrupted
+\begin{em}cmp\end{em} argument.
+
+Traditionally, attacks of this kind have targeted the system function in the standard system library
+which allows the execution of an arbitrary command with arguments. However, recent attacks have been
+demonstrated which do not depend on calling functions in the standard C library. 
+
+\section{Catalog of Defense Techniques}
+
+\subsection{Compile Time Defenses}
+
 StackGuard \cite{stackguard-98} places a 'canary' on the stack between local variables and the
 return address. This canary value is designed to warn of stack corruption since validating the
 integrity of the canary value is an effective means of ensuring that the function return address has

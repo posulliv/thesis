@@ -24,6 +24,15 @@
 \setlength{\parindent}{.4in}
 \pagestyle{empty}
 
+\newenvironment{mylisting}
+{\begin{list}{}{\setlength{\leftmargin}{1em}}\item\scriptsize\bfseries}
+{\end{list}}
+
+\newenvironment{mytinylisting}
+{\begin{list}{}{\setlength{\leftmargin}{1em}}\item\tiny\bfseries}
+{\end{list}}
+
+
 \begin{document}
 
 \include{Abstract} %(must be first, required, non-numbered)
