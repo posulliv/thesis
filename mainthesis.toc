@@ -5,22 +5,11 @@
 \contentsline {section}{\numberline {2.1}Catalog of Attack Techniques}{3}
 \contentsline {subsection}{\numberline {2.1.1}Buffer Overflow Attacks}{3}
 \contentsline {subsection}{\numberline {2.1.2}Return-to-libc Attacks}{5}
-\contentsline {section}{\numberline {2.2}Catalog of Defense Techniques}{6}
-\contentsline {subsection}{\numberline {2.2.1}Compile Time Defenses}{6}
-\contentsline {chapter}{\numberline {3}Stochastic Four-Wave-Mixing}{7}
-\contentsline {section}{\numberline {3.1}Overview}{7}
-\contentsline {section}{\numberline {3.2}Experimental and Computational Background}{9}
-\contentsline {section}{\numberline {3.3}Stochastic NLSE Model}{11}
-\contentsline {section}{\numberline {3.4}Discussion}{32}
-\contentsline {section}{\numberline {3.5}Conclusions}{35}
-\contentsline {chapter}{\numberline {A}Overview}{38}
-\contentsline {section}{\numberline {A.1}Experimental and Computational Background}{40}
-\contentsline {section}{\numberline {A.2}Stochastic NLSE Model}{42}
-\contentsline {section}{\numberline {A.3}Discussion}{63}
-\contentsline {section}{\numberline {A.4}Conclusions}{66}
-\contentsline {chapter}{\numberline {B}Overview}{69}
-\contentsline {section}{\numberline {B.1}Experimental and Computational Background}{71}
-\contentsline {section}{\numberline {B.2}Stochastic NLSE Model}{73}
-\contentsline {section}{\numberline {B.3}Discussion}{94}
-\contentsline {section}{\numberline {B.4}Conclusions}{97}
-\contentsline {chapter}{\relax \fontsize {12}{14.5}\selectfont \abovedisplayskip 12\p@ plus3\p@ minus7\p@ \abovedisplayshortskip \z@ plus3\p@ \belowdisplayshortskip 6.5\p@ plus3.5\p@ minus3\p@ \belowdisplayskip \abovedisplayskip \let \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ Bibliography}{100}
+\contentsline {subsection}{\numberline {2.1.3}Return-Orientated Programming}{6}
+\contentsline {section}{\numberline {2.2}Catalog of Defense Techniques}{7}
+\contentsline {subsection}{\numberline {2.2.1}Compile Time Defenses}{7}
+\contentsline {subsection}{\numberline {2.2.2}Instruction Set Randomization}{8}
+\contentsline {chapter}{\numberline {3}Overview of Scheme}{9}
+\contentsline {chapter}{\numberline {4}Experimental Results}{10}
+\contentsline {chapter}{\numberline {5}Conclusion}{11}
+\contentsline {chapter}{\relax \fontsize {12}{14.5}\selectfont \abovedisplayskip 12\p@ plus3\p@ minus7\p@ \abovedisplayshortskip \z@ plus3\p@ \belowdisplayshortskip 6.5\p@ plus3.5\p@ minus3\p@ \belowdisplayskip \abovedisplayskip \let \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ Bibliography}{12}
