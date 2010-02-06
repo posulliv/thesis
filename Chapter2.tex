@@ -8,7 +8,8 @@ Our work is related to many techniques that attempt to defend against malicious 
 vulnerabilities in applications which present attackers with an opportunity to attack. In this
 chapter, we elaborate on some of the pieces of work most closely related to ours. First, we present
 the various attack techniques utilized by attackers that are relevant for this thesis and then we go
-on to present various techniques proposed for mitigating these attack techniques.
+on to present various techniques proposed for mitigating these attack techniques. When discussing
+defenses, we draw attention to the drawbacks of each technique.
 
 \section{Catalog of Attack Techniques}
 
@@ -94,6 +95,22 @@ Traditionally, attacks of this kind have targeted the system function in the sta
 which allows the execution of an arbitrary command with arguments. However, recent attacks have been
 demonstrated which do not depend on calling functions in the standard C library. 
 
+\subsection{Return-Orientated Programming}
+
+The technique of return-oreintated programming was introduced by Shacham et al \cite{}. Using this
+technique, an attacker can induce arbitrary behavior in a program whose control flow he/she has
+diverted without injecting any code. A return-orientated program chains together short instruction
+sequences already present in a program's address space, each of which ends in a return instruction.
+Several instructions can be combined into a gadget which is the basic block within a
+return-orientated program that performs operations. Gadgets are self-contained and perform one
+well-defined step of a computation. An attacker uses these gadgets to craft stack frames that can
+then perform arbitrary computations. 
+
+Shacham et al. showed that the standard C library in both Linux running on the x86 platform and
+Solaris running on the SPARC platform contain enough useful intructions to construct meaningful
+gadgets. They manually analyzed the standard C library on both platforms and constructed a library
+of gadgets that is Turing complete.
+
 \section{Catalog of Defense Techniques}
 
 \subsection{Compile Time Defenses}
@@ -104,7 +121,26 @@ integrity of the canary value is an effective means of ensuring that the functio
 not been corrupted. Microsoft's compiler also supports the insertion of stack canaries with the /GS
 option.
 
+ProPolice \cite{} is similar to StackGuard in that it places a canary value on the stack. However,
+ProPolice also places arrays and other function-local buffers above all other function-local
+variables on the stack. Copies of all function arguments are also made into new, function-local
+variables that also sit below any buffers in the function. As a result, these variables and
+arguments are not subject to corruption through an overflow of these buffers. 
+
 StackGuard, PointGuard, and ProPolice involve compile-time analysis and transformation. Thus, unless
-the source code for an applicatoin is available, these techniques can not be used thereby hindering
+the source code for an application is available, these techniques can not be used thereby hindering
 the ability to easily deploy these techniques.
 
+\subsection{Instruction Set Randomization}
+
+Instruction-set randomization \cite{} is a promising technique for protecting against buffer
+overflows (and many kinds of code injection attacks). This approach randomizes the underlying
+system's instructions so that foreign code injected by an attacker would fail to execute correctly
+since the attacker does not know the instruction set of the target system. However, as mentioned by
+the authors in \cite{}, the main drawback of this technique as applied to binary code that is meant
+to execute on a hardware processor is the need for special support by the processor. Thus, even
+though instruction-set randomization offers a strong defense against buffer overflow attacks the
+fact that unless it is supported by specialized hardware, it incurs significant overheads means that
+it is inlikely to see adoption in practice for the foreseeable future. However, when applied to
+interpreted languages (such as SQL), it can prove to be very effective. However, interpreted
+languages are not vulnerable to the buffer overflow attacks being discussed in this thesis.
