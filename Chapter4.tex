@@ -4,3 +4,95 @@
 
 \chapter{Experimental Results}
 
+\subsection{Synthetic Results}
+
+In order to test how effective our scheme is, we utilized the benchmarks provided by Wilander and
+Kamkar \cite{}.
+
+\subsubsection{Benchmark Description}
+
+Wilander and Kamkar developed twenty buffer overflow attack forms in order to evaluate the
+effectiveness of tools available at the time that aimed to stop buffer overflows. An attack form is
+defined as a combination of a technique, location, and an attack target. These terms are in turn
+defined by Wilander and Kamkar as:
+
+\begin{itemize}
+
+\item \textbf{Technique} - either the buffer is overflowed all the way to the attack target
+or the buffer is overflowed to redirect a pointer to the target
+
+\item \textbf{Location} - the types of location for the buffer overflow are the stack or the
+heap/BSS/data segment
+
+\item \textbf{Attack target} - there are four targets - 1) the return address, 2) the old
+base pointer, 3) function pointers, and 4) longjmp buffers
+
+\end{itemize}
+
+Considering all practically possible combinations gives the twenty attack forms listed below:
+
+\begin{enumerate}
+
+\item Buffer overflow on the stack all the way to the target
+
+  \begin{enumerate}
+  \item Return address
+  \item Old base pointer
+  \item Function pointer as a local variable
+  \item Function pointer as parameter
+  \item Longjmp buffer as local variable
+  \item Longjmp buffer as function parameter
+  \end{enumerate}
+
+\item Buffer overflow on the heap/BSS/data segment all the way to the target
+
+  \begin{enumerate}
+  \item Function pointer
+  \item Longjmp buffer
+  \end{enumerate}
+
+\item Buffer overflow of a pointer on the stack and then pointing at target
+
+  \begin{enumerate}
+  \item Return address
+  \item Old base pointer
+  \item Function pointer as a local variable
+  \item Function pointer as parameter
+  \item Longjmp buffer as local variable
+  \item Longjmp buffer as function parameter
+  \end{enumerate}
+
+\item Buffer overflow of a pointer on the heap/BSS/data segment and then pointing at target
+
+  \begin{enumerate}
+  \item Return address
+  \item Old base pointer
+  \item Function pointer as a local variable
+  \item Function pointer as parameter
+  \item Longjmp buffer as local variable
+  \item Longjmp buffer as function parameter
+  \end{enumerate}
+
+\end{enumerate}
+
+Of the twenty attack forms, we obtained the source code to only eighteen of these attack targets.
+
+\subsubsection{Methodology}
+
+We compiled the benchmarks using gcc 4.4. We compiled two versions of the benchmarks - one version
+had the \begin{em}-fno-stack-protector\end{em} flag while the other had the
+\begin{em}-fstack-protector\end{em} flag. The \begin{em}-fstack-protector\end{em} flag creates a
+binary with the ProPolice protection mechanism embedded within it.
+
+\subsubsection{Results and Analysis}
+
+\subsection{Overheads}
+
+\subsubsection{Binary Rewriting Overhead}
+
+\subsubsection{Overhead of the Scheme}
+
+\subsection{Real World Attacks}
+
+Ultimately, the success of the scheme presented in this thesis is only valuable if it is applicable
+to real-world attacks i.e. whether it can prevent attacks that have been observed in practice.

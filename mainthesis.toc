@@ -11,5 +11,13 @@
 \contentsline {subsection}{\numberline {2.2.2}Instruction Set Randomization}{8}
 \contentsline {chapter}{\numberline {3}Overview of Scheme}{9}
 \contentsline {chapter}{\numberline {4}Experimental Results}{10}
-\contentsline {chapter}{\numberline {5}Conclusion}{11}
-\contentsline {chapter}{\relax \fontsize {12}{14.5}\selectfont \abovedisplayskip 12\p@ plus3\p@ minus7\p@ \abovedisplayshortskip \z@ plus3\p@ \belowdisplayshortskip 6.5\p@ plus3.5\p@ minus3\p@ \belowdisplayskip \abovedisplayskip \let \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ Bibliography}{12}
+\contentsline {subsection}{\numberline {4.0.3}Synthetic Results}{10}
+\contentsline {subsubsection}{\numberline {4.0.3.1}Benchmark Description}{10}
+\contentsline {subsubsection}{\numberline {4.0.3.2}Methodology}{11}
+\contentsline {subsubsection}{\numberline {4.0.3.3}Results and Analysis}{12}
+\contentsline {subsection}{\numberline {4.0.4}Overheads}{12}
+\contentsline {subsubsection}{\numberline {4.0.4.1}Binary Rewriting Overhead}{12}
+\contentsline {subsubsection}{\numberline {4.0.4.2}Overhead of the Scheme}{12}
+\contentsline {subsection}{\numberline {4.0.5}Real World Attacks}{12}
+\contentsline {chapter}{\numberline {5}Conclusion}{13}
+\contentsline {chapter}{\relax \fontsize {12}{14.5}\selectfont \abovedisplayskip 12\p@ plus3\p@ minus7\p@ \abovedisplayshortskip \z@ plus3\p@ \belowdisplayshortskip 6.5\p@ plus3.5\p@ minus3\p@ \belowdisplayskip \abovedisplayskip \let \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ Bibliography}{14}
