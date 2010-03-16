@@ -4,12 +4,12 @@
 
 \chapter{Experimental Results}
 
-\subsection{Synthetic Results}
+\section{Synthetic Results}
 
 In order to test how effective our scheme is, we utilized the benchmarks provided by Wilander and
 Kamkar \cite{}.
 
-\subsubsection{Benchmark Description}
+\subsection{Benchmark Description}
 
 Wilander and Kamkar developed twenty buffer overflow attack forms in order to evaluate the
 effectiveness of tools available at the time that aimed to stop buffer overflows. An attack form is
@@ -77,22 +77,22 @@ Considering all practically possible combinations gives the twenty attack forms 
 
 Of the twenty attack forms, we obtained the source code to only eighteen of these attack targets.
 
-\subsubsection{Methodology}
+\subsection{Methodology}
 
 We compiled the benchmarks using gcc 4.4. We compiled two versions of the benchmarks - one version
 had the \begin{em}-fno-stack-protector\end{em} flag while the other had the
 \begin{em}-fstack-protector\end{em} flag. The \begin{em}-fstack-protector\end{em} flag creates a
 binary with the ProPolice protection mechanism embedded within it.
 
-\subsubsection{Results and Analysis}
+\subsection{Results and Analysis}
 
-\subsection{Overheads}
+\section{Overheads}
 
-\subsubsection{Binary Rewriting Overhead}
+\subsection{Binary Rewriting Overhead}
 
-\subsubsection{Overhead of the Scheme}
+\subsection{Overhead of the Scheme}
 
-\subsection{Real World Attacks}
+\section{Real World Attacks}
 
 Ultimately, the success of the scheme presented in this thesis is only valuable if it is applicable
 to real-world attacks i.e. whether it can prevent attacks that have been observed in practice.
