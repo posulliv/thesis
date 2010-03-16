@@ -4,3 +4,25 @@
 
 \chapter{Overview of Scheme}
 
+The cornerstone of our scheme is a binary rewriter which has been developed within our research
+group. In this chapter, we first discuss binary rewriting and then go on to discuss the various
+components of our scheme which are implemented as part of our binary rewriter.
+
+\section{Binary Rewriting}
+
+Binary rewriters are pieces of software that accepts a binary executable program as input, and
+produce an improved executable as output. The output executable usually has the same functionality
+as the input, but is improved in one or more metrics; in our case, security. In our research, we use
+binary rewriting to retroactively add security to a vulnerable binary. When this extra security is
+added, a binary is no longer vulnerable to common buffer overflow attacks.
+
+Two notable properties of using binary rewriting to enforce security are low-overhead and real-time
+prevention of malicious behaviors. 
+
+\subsection{Architecture of Binary Rewriter}
+
+\section{Stack Canary Insertion}
+
+\section{Return Address Encryption}
+
+\section{Function Pointer Encryption}
