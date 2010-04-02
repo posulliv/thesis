@@ -95,4 +95,19 @@ binary with the ProPolice protection mechanism embedded within it.
 \section{Real World Attacks}
 
 Ultimately, the success of the scheme presented in this thesis is only valuable if it is applicable
-to real-world attacks i.e. whether it can prevent attacks that have been observed in practice.
+to real-world attacks i.e. whether it can prevent attacks that have been observed in practice. In
+this section, we first analyze US-CERT advisories that have been issued in the last five years.
+Next, we reproduce a real-world attack and demonstrate that our rewriter halts this attack.
+
+\subsection{US-CERT Advisories}
+
+The Computer Emergency Response Team, or CERT, was formed at CMU in the late 80s and begin releasing
+"Advisories" that described vulnerabilities in order to alert system administrators of potential
+security problems. These advisories have now become a core part of US-CERT's technical cyber
+security alerts \cite{}.
+
+\subsection{Stack Buffer Overflow Attack Against HTTP Server}
+
+A HTTP srever, GHTTPD, has a stack buffer overflow vulnerability in its logging function. We
+produced an exploit for this server which overflows a stack-based buffer and corrupts the return
+address.
