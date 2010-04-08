@@ -13,8 +13,8 @@
 \end{center}
 \hspace{-.15in}
 \begin{tabular}{ll}
-Title of dissertation:    & {\large  ENFORCING SECURITY USING}\\
-&				      {\large  BINARY REWRITING} \\
+Title of dissertation:    & {\large  PREVENTING BUFFER OVERFLOWS}\\
+&				      {\large  WITH BINARY REWRITING} \\
 \ \\
 &                          {\large  P\'{a}draig O'Sullivan, Master of Science, 2010} \\
 \ \\
@@ -27,14 +27,26 @@ Dissertation directed by: & {\large  Professor Rajeev Barua} \\
 \renewcommand{\baselinestretch}{2}
 \large \normalsize
 
-In this thesis, we will discuss the concept of using binary rewriting to enforce protect a binary
-from various attack forms. More specifically, we will study various attacks that happen in the real
-world and present techniques that can be employed within a binary rewriter to protect a binary from
-these attacks.
+Buffer overflows are the single largest cause of security attacks in recent times. Attacks based on
+this vulnerability have been the subject of extensive research and a significant number of defenses
+have been proposed for dealing with attacks of this nature. However, despite this extensive
+research, buffer overflows continue to be exploited due to the fact that many defenses proposed in
+prior research provide only partial coverage and attackers have adopted to exploit problems that are
+not well defended. The fact that many legacy binaries are still deployed in production environments
+also contributes to the success of buffer overflow attacks since most, if not all, buffer overflow
+defenses are source level defenses which require an application to be re-compiled. For many legacy
+applications, this may not be possible since the source code may no longer be available. In this
+thesis, we present an implementation of a defense mechanism for defending against various attack
+forms due to buffer overflows using binary rewriting. We study various attacks that happen in the
+real world and present techniques that can be employed within a binary rewriter to protect a binary
+from these attacks.
 
-Binary rewriting is a nascent field and little research has been done on applications of binary
-rewriting. In particular, there is great potential for applications of binary rewriting in software
-security. Numerous attacks on application programs assume that application binaries are laid out in
-certain ways. Our defense scheme implemented using binary rewriting technology can prevent many of
-these attacks. 
-
+Binary rewriting is a nascent field and little research has been done regarding the applications of
+binary rewriting. In particular, there is great potential for applications of binary rewriting in
+software security. With a binary rewriter, a vulnerable application can be immediately secured
+without the need for access to it's source code which allows legacy binaries to be secured. Also,
+numerous attacks on application software assume that application binaries are laid out in certain
+ways or have certain characteristics. Our defense scheme implemented using binary rewriting
+technology can prevent many of these attacks. We demonstrate the effectiveness of our scheme in
+preventing many different attack forms based on buffer overflows on both synthetic benchmarks and
+real-world attacks.
