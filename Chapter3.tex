@@ -22,15 +22,34 @@ advantages over compiler-produced optimized binaries:
 
 \begin{itemize}
 
-\item Ability to do inter-procedural optimization.
+\item \textbf{Ability to do inter-procedural optimization.} Although compilers in theory can do
+whole-program optimizations, the reality is that they do little if any. Many commercial compilers -
+even highly optimizing ones - limit themselves to separate compilation, where each file (and
+sometimes each function) is compiled in isolation. Inter-procedural link-time optimizations are
+often absent, and even when present, are usually far less powerful than compile-time optimizations
+since they work on low-level object code without the benefit of the extensive optimizations on IR
+available in the compiler. In contrast, binary rewriters have access to the complete application all
+at once, including libraries. This allows them to perform aggressive whole-program optimizations to
+exceed the performance of even optimized code.
 
-\item Ability to do optimizations missed by the compiler.
+\item \textbf{Ability to do optimizations missed by the compiler.} Some binaries, especially legacy
+binaries or those compiled with inferior compilers, often miss certain optimizations. Binary
+rewriters can perform these optimizations missed by the compiler while preserving the optimizations
+the compiler did actually perform.
 
-\item Increased economic feasibility.
+\item \textbf{Increased economic feasibility.} It is cheaper to implement a code transformation once
+for an instruction set in a binary rewriter, rather than repeatedly for each compiler for the
+instruction set. For example, the ARM instruction set has over 30 compilers available for it, and
+the x86 has a similarly large number of compilers from different vendors and for different source
+languages. The high expense of repeated compiler implementation often cannot be supported by a small
+fraction of the demand.
 
-\item Portable to any source language and any compiler.
+\item \textbf{Portable to any source language and any compiler.} A binary rewriter works for code
+produced from any source language by any compiler. 
 
-\item Works for hand-coded assembly routines.
+\item \textbf{Works for hand-coded assembly routines.} Code transformations cannot be applied by a
+compiler to hand-coded assembly routines, since they are never compiled. In contrast, a binary
+rewriter can transform such routines.
 
 \end{itemize}
 
