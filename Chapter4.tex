@@ -90,6 +90,101 @@ binary with the ProPolice protection mechanism embedded within it.
 
 \subsection{Binary Rewriting Overhead}
 
+A subset of SPEC benchmarks and other benchmarks were selected to substantiate the performance of
+our binary rewriter. The benchmarks were selected purely at random, and are limited only by the
+criteria that they are correctly rewritten by our still-early prototype.
+
+In the first experiment, all binaries executed correctly after rewriting thereby demonstrating the
+robustness of our binary rewriter. We were able to correctly apply the standard suite of LLVM
+optimization passes without any changes. These include CFG simplification, global optimization,
+global dead-code elimination, inter-procedural constant propagation, instruction combining,
+condition propagation, tail-call elimination, induction variable simplification and selective loop
+unrolling.
+
+Besides correctness, the next most important metrics are the run-time speedup or overhead of the
+rewritten binaries versus the input binaries. Two scenarios are of interest: when the input binaries
+were un-optimized, and when they were highly optimized. Both scenarios are discussed in turn below.
+
+\begin{figure}
+\begin{center}
+\includegraphics[0in,0in][3.25in,4.266in]{perfunopt4.eps}
+\end{center}
+\renewcommand{\baselinestretch}{1}
+\small\normalsize
+\begin{quote}
+\caption{Normalized runtime of rewritten binary as compared to input binary (runtime=1.0) that is
+un-optimized}
+\label{noopts}
+\end{quote}
+\end{figure}
+\renewcommand{\baselinestretch}{2}
+\small\normalsize
+
+Figure \ref{noopts} shows the normalized run-time of each rewritten binary compared to an input
+binary produced using GCC with no optimization (-O0 flag). We obtain an average improvement of 31\%
+in execution time on our benchmarks with an improvement of over 40\% in some cases. This result
+shows that our rewriter is useful for binaries that are not highly optimized, such as legacy
+binaries from older compilers, or binaries from compilers that are inferior compared to the best
+available compilers. In most cases, after rewriting we raised the performance close to that of an
+optimized binary produced directly by GCC, showing the effectiveness of our approach.
+
+Next, we study the performance of our rewriter on already optimized binaries. Figure \ref{withopts}
+shows the normalized execution time of each rewritten binary compared to an input binary produced
+using GCC with the highest available level of optimization (-O3 flag). In this case, the results are
+mixed, with most benchmarks nearly breaking even or showing a small slowdown, one benchmark showing
+a larger slowdown of 13\%, and one benchmark actually shows a speedup of 10\%. The average is 4\%
+slowdown.
+
+\begin{figure}
+\begin{center}
+\includegraphics[0in,0in][3.25in,4.266in]{perfopt4.eps}
+\end{center}
+\renewcommand{\baselinestretch}{1}
+\small\normalsize
+\begin{quote}
+\caption{Normalized runtime of rewritten binary as compared to input binary (runtime=1.0) that is
+optimized}
+\label{withopts}
+\end{quote}
+\end{figure}
+\renewcommand{\baselinestretch}{2}
+\small\normalsize
+
+We consider this near break-even performance on highly optimized binaries a good result for the
+following three reasons: 
+
+\begin{enumerate}
+
+\item our initial goal was not necessarily to get a speedup, but to
+generate correct IR without without introducing too much overhead. This would enable the IR to be a
+starting point for various custom compiler transformations we wanted to perform thereafter, such as
+automatic parallelization or security as covered in this thesis. Ultimately, these optimizations
+determine the utility of the rewriter. 
+
+\item these numbers represent our first cut implementation devoid of any attempt at producing a
+better IR more geared towards optimization. We believe these numbers can be substantially improved
+with more detailed IR and are exploring several related avenues. 
+
+\item we have currently not implemented any custom serial optimizations that are likely to improve
+performance further, such as the inter-procedural versions of common sub-expression elimination and
+loop-invariant code motion, changing the compiler-enforced calling convention for registers for
+better run-time, and more aggressive inlining. We believe these optimizations hold promise as the
+inter-procedural optimization abilities of current compilers are very limited compared to their
+intra-procedural performance.
+
+\end{enumerate}
+
+One additional advantage of the binary rewriter is that it accumlates optimizations accross two
+compilers - rewritten binaries have an optimization if it is either present in the compiler that
+produced the input binary, or in the rewriter. In our case, if either GCC or LLVM had an
+optimization, the output binary should have it. This is why, for example, one of our rewritten
+binaries (libquantum) had a 10\% speedup versus the input binary. Although GCC with the -O3
+optimization flag is known to produce good code, in some cases it missed promoting structure fields
+to registers whereas LLVM did, explaining the speedup in libquantum. With better IR and more
+aggressive optimizations, we expect to see more consistent speedups in output binaries in the
+future.
+
+
 \subsection{Overhead of the Scheme}
 
 \section{Real World Attacks}
