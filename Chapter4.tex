@@ -190,25 +190,36 @@ to registers whereas LLVM did, explaining the speedup in libquantum. With better
 aggressive optimizations, we expect to see more consistent speedups in output binaries in the
 future.
 
-
 \subsection{Security Related Overheads}
+
+We measured the overhead of the security schemes we implemented. These results are presented in
+Figure \ref{secoverhead}. As seen the average overhead introduced is low at only 18\%. 
+
+\begin{figure}
+\begin{center}
+\includegraphics[0in,0in][3.25in,4.266in]{security1.eps}
+\end{center}
+\renewcommand{\baselinestretch}{1}
+\small\normalsize
+\begin{quote}
+\caption{Runtime overhead of rewritten binaries after inserting security checks.}
+\label{secoverhead}
+\end{quote}
+\end{figure}
+\renewcommand{\baselinestretch}{2}
+\small\normalsize
 
 \section{Real World Attacks}
 
 Ultimately, the success of the scheme presented in this thesis is only valuable if it is applicable
 to real-world attacks i.e. whether it can prevent attacks that have been observed in practice. In
-this section, we first analyze US-CERT advisories that have been issued in the last five years.
-Next, we reproduce a real-world attack and demonstrate that our rewriter halts this attack.
+this section, we reproduce a real-world attack and demonstrate that our rewriter halts this attack.
 
-\subsection{US-CERT Advisories}
-
-The Computer Emergency Response Team, or CERT, was formed at CMU in the late 80s and begin releasing
-"Advisories" that described vulnerabilities in order to alert system administrators of potential
-security problems. These advisories have now become a core part of US-CERT's technical cyber
-security alerts \cite{}.
-
-\subsection{Stack Buffer Overflow Attack Against HTTP Server}
-
-A HTTP srever, GHTTPD, has a stack buffer overflow vulnerability in its logging function. We
+A HTTP server, GHTTPD, has a stack buffer overflow vulnerability in its logging function. We
 produced an exploit for this server which overflows a stack-based buffer and corrupts the return
 address.
+
+Using the return address protection component of our scheme, we were able to rewrite the GHTTPD
+server, add protection of the return address and prevent the attack which uses the buffer overflow
+vulnerability to corrupt the return address. When our protection scheme is enabled, the return
+address corruption is detected and the application is aborted.
