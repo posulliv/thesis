@@ -92,13 +92,44 @@ binary with the ProPolice protection mechanism embedded within it.
 
 \subsection{Results and Analysis}
 
+here we will give the results of the experiments and mention why our scheme is so great
+
+present results in a tabular format I think 
+
+and then explain the results would be the best way to proceed I think....
+
 \section{Overheads}
 
 \subsection{Binary Rewriting Overhead}
 
 A subset of SPEC benchmarks and other benchmarks were selected to substantiate the performance of
 our binary rewriter. The benchmarks were selected purely at random, and are limited only by the
-criteria that they are correctly rewritten by our still-early prototype.
+criteria that they are correctly rewritten by our still-early prototype. Table \ref{benchlist} lists
+the set of benchmarks which are used for carrying out the experiments. All the benchmarks are
+compiled with GCC v4.4.1.
+
+\begin{center}
+\begin{tabular}{ | l | c | r | }
+\hline
+\textbf{Application} & \textbf{Source} & \textbf{Lines of C Source Code} \\
+\hline
+perm & None & 56 \\
+\hline
+laplace & None & 40 \\
+\hline
+dijkstra & MiBench & 134 \\
+\hline
+tsp & Olden & 473 \\
+\hline
+lbm & SpecFP2006 & 1155 \\
+\hline
+mcf & SpecInt2006 & 2685 \\
+\hline
+libquantum & SpecInt2006 & 4357 \\
+\hline
+\label{benchlist}
+\end{tabular}
+\end{center}
 
 In the first experiment, all binaries executed correctly after rewriting thereby demonstrating the
 robustness of our binary rewriter. We were able to correctly apply the standard suite of LLVM
