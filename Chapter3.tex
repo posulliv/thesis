@@ -5,21 +5,75 @@
 \chapter{Overview of Scheme}
 
 The cornerstone of our scheme is a binary rewriter which has been developed within our research
-group. In this chapter, we first discuss binary rewriting and then go on to discuss the various
-components of our scheme which are implemented as part of our binary rewriter.
+group. In this chapter, we first discuss binary rewriting, give an overview of the binary rewriter
+we have developed in our research group, and then go on to discuss the various components of our
+scheme that we have implemented as part of our binary rewriter.
 
 \section{Binary Rewriting}
 
-Binary rewriters are pieces of software that accepts a binary executable program as input, and
-produce an improved executable as output. The output executable usually has the same functionality
-as the input, but is improved in one or more metrics; in our case, security. In our research, we use
-binary rewriting to retroactively add security to a vulnerable binary. When this extra security is
-added, a binary is no longer vulnerable to common buffer overflow attacks.
+Binary rewriters are pieces of software that accept a binary executable program as input, and
+produce an improved executable as output. The output executable typically has the same functionality
+as the input, but is improved in one or more metrics, such as run-time, energy use, memory use,
+security or reliability. 
+
+In recognition of its potential, binary rewriting has seen much active research over the last
+decade. The reason for great interest in this area is that binary rewriting offers additional
+advantages over compiler-produced optimized binaries:
+
+\begin{itemize}
+
+\item Ability to do inter-procedural optimization.
+
+\item Ability to do optimizations missed by the compiler.
+
+\item Increased economic feasibility.
+
+\item Portable to any source language and any compiler.
+
+\item Works for hand-coded assembly routines.
+
+\end{itemize}
+
+However, binary rewriters today have fallen far short of this desired vision. Binary rewriters
+remain relatively crude tools today, capable of no more than simple program transformations such as
+peephole optimization and code instrumentation. Complex transformations such as extensive
+whole-program optimizations, automatic parallelization and sophisticated security enforcement, which
+we study in this thesis, remain outside the capabilities of current rewriters.
+
+The binary rewriter developed by our group and utilized for this research is named SecondWrite. Our
+binary rewriter employs the widely used open-source LLVM compiler infrastructure and in particular,
+LLVM's high-level intermediate representation to represent code. Our custom binary reader and
+de-compiler modules read a binary and produce requivalent LLVM IR code using some of the techniques
+we will briefly describe in Section 3.1.1.
+
+For this thesis, we study using binary rewriting to retroactively add security to a vulnerable
+binary. When this extra security is added, a binary is no longer vulnerable to common buffer
+overflow attacks.
 
 Two notable properties of using binary rewriting to enforce security are low-overhead and real-time
-prevention of malicious behaviors. 
+prevention of malicious behaviors as will be seen when we present our experimental results.
 
 \subsection{Architecture of Binary Rewriter}
+
+Figure \ref{} presents an overview of the SecondWrite system. The SecondWrite system consists of a
+frontend module for reading binary executables and generating an initial LLVM IR, an internal pass
+module for extracting more information about the underlying program, optimizing passes to implement
+various optimizations, and the LLVM code generator (codegen) for producing the rewritten binary.
+
+The frontend module consists of a disassembler and a custom binary reader which processes the
+individual instructions and generates an initial LLVM IR. This initial representation is void of the
+desired IR features like function prototypes, abstract stack and virtual registers. The internal
+pass module analyzes this initial IR to obtain an improved IR which has all the information and
+features mentioned previously. Various optimization passes can be written on the above IR to obtain
+an optimized IR. Finally, the optimized IR is passed to the existing LLVM code generator to obtain
+the rewritten binary.
+
+Various inherent characteristics of executables such as the unavailability of function prototypes,
+the use of a phyiscal stack and the use of the set of phyiscal registers make it difficult to obtain
+a high-level IR from an input executable. A number of techniques have been developed within our
+group to extract this high-level information from executables whenever possible. We will not discuss
+those techniques in this thesis as the techniques are explained in detail elsewhere \cite{}.
+
 
 \section{Return Address Protection}
 
