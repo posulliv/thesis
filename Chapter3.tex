@@ -60,6 +60,13 @@ frontend module for reading binary executables and generating an initial LLVM IR
 module for extracting more information about the underlying program, optimizing passes to implement
 various optimizations, and the LLVM code generator (codegen) for producing the rewritten binary.
 
+\begin{figure}
+\begin{center}
+\includegraphics[0in,0in][3.25in,4.266in]{sw_overview.eps}
+\caption{SecondWrite system}
+\end{center}
+\end{figure}
+
 The frontend module consists of a disassembler and a custom binary reader which processes the
 individual instructions and generates an initial LLVM IR. This initial representation is void of the
 desired IR features like function prototypes, abstract stack and virtual registers. The internal
