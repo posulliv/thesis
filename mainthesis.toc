@@ -8,20 +8,19 @@
 \contentsline {section}{\numberline {2.2}Catalog of Defense Techniques}{7}
 \contentsline {subsection}{\numberline {2.2.1}Compile Time Defenses}{7}
 \contentsline {subsection}{\numberline {2.2.2}Instruction Set Randomization}{8}
-\contentsline {chapter}{\numberline {3}Overview of Scheme}{9}
+\contentsline {chapter}{\numberline {3}Binary Rewriting and Our Protection Scheme}{9}
 \contentsline {section}{\numberline {3.1}Binary Rewriting}{9}
-\contentsline {subsection}{\numberline {3.1.1}Architecture of Binary Rewriter}{10}
-\contentsline {section}{\numberline {3.2}Stack Canary Insertion}{10}
-\contentsline {section}{\numberline {3.3}Return Address Encryption}{10}
-\contentsline {section}{\numberline {3.4}Function Pointer Encryption}{10}
-\contentsline {chapter}{\numberline {4}Experimental Results}{11}
-\contentsline {section}{\numberline {4.1}Synthetic Results}{11}
-\contentsline {subsection}{\numberline {4.1.1}Benchmark Description}{11}
-\contentsline {subsection}{\numberline {4.1.2}Methodology}{13}
-\contentsline {subsection}{\numberline {4.1.3}Results and Analysis}{14}
-\contentsline {section}{\numberline {4.2}Overheads}{14}
-\contentsline {subsection}{\numberline {4.2.1}Binary Rewriting Overhead}{14}
-\contentsline {subsection}{\numberline {4.2.2}Overhead of the Scheme}{14}
-\contentsline {section}{\numberline {4.3}Real World Attacks}{14}
-\contentsline {chapter}{\numberline {5}Conclusion}{15}
-\contentsline {chapter}{\relax \fontsize {12}{14.5}\selectfont \abovedisplayskip 12\p@ plus3\p@ minus7\p@ \abovedisplayshortskip \z@ plus3\p@ \belowdisplayshortskip 6.5\p@ plus3.5\p@ minus3\p@ \belowdisplayskip \abovedisplayskip \let \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ Bibliography}{16}
+\contentsline {subsection}{\numberline {3.1.1}Architecture of Binary Rewriter}{12}
+\contentsline {section}{\numberline {3.2}Return Address Protection}{13}
+\contentsline {section}{\numberline {3.3}Function Pointer Protection}{13}
+\contentsline {section}{\numberline {3.4}longjmp/setjmp Protection}{13}
+\contentsline {chapter}{\numberline {4}Experimental Results}{14}
+\contentsline {section}{\numberline {4.1}Synthetic Results}{14}
+\contentsline {subsection}{\numberline {4.1.1}Benchmark Description}{14}
+\contentsline {subsection}{\numberline {4.1.2}Methodology}{16}
+\contentsline {subsection}{\numberline {4.1.3}Results and Analysis}{17}
+\contentsline {section}{\numberline {4.2}Overheads}{17}
+\contentsline {subsection}{\numberline {4.2.1}Binary Rewriting Overhead}{17}
+\contentsline {subsection}{\numberline {4.2.2}Security Related Overheads}{22}
+\contentsline {section}{\numberline {4.3}Real World Attacks}{22}
+\contentsline {chapter}{\numberline {5}Conclusion}{25}

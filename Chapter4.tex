@@ -108,6 +108,7 @@ criteria that they are correctly rewritten by our still-early prototype. Table \
 the set of benchmarks which are used for carrying out the experiments. All the benchmarks are
 compiled with GCC v4.4.1.
 
+\begin{table}
 \begin{center}
 \begin{tabular}{ | l | c | r | }
 \hline
@@ -127,9 +128,12 @@ mcf & SpecInt2006 & 2685 \\
 \hline
 libquantum & SpecInt2006 & 4357 \\
 \hline
-\label{benchlist}
 \end{tabular}
 \end{center}
+
+\caption{Application Characteristics}
+\label{benchlist}
+\end{table}
 
 In the first experiment, all binaries executed correctly after rewriting thereby demonstrating the
 robustness of our binary rewriter. We were able to correctly apply the standard suite of LLVM
