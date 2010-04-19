@@ -11,9 +11,11 @@
 \contentsline {chapter}{\numberline {3}Binary Rewriting and Our Protection Scheme}{9}
 \contentsline {section}{\numberline {3.1}Binary Rewriting}{9}
 \contentsline {subsection}{\numberline {3.1.1}Architecture of Binary Rewriter}{12}
-\contentsline {section}{\numberline {3.2}Return Address Protection}{13}
-\contentsline {section}{\numberline {3.3}Function Pointer Protection}{13}
-\contentsline {section}{\numberline {3.4}longjmp/setjmp Protection}{13}
+\contentsline {section}{\numberline {3.2}Stack Canary Insertion}{13}
+\contentsline {section}{\numberline {3.3}Base Pointer Removal}{13}
+\contentsline {section}{\numberline {3.4}Return Address Protection}{13}
+\contentsline {section}{\numberline {3.5}Function Pointer Protection}{13}
+\contentsline {section}{\numberline {3.6}longjmp/setjmp Protection}{13}
 \contentsline {chapter}{\numberline {4}Experimental Results}{14}
 \contentsline {section}{\numberline {4.1}Synthetic Results}{14}
 \contentsline {subsection}{\numberline {4.1.1}Benchmark Description}{14}
