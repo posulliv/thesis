@@ -92,11 +92,65 @@ binary with the ProPolice protection mechanism embedded within it.
 
 \subsection{Results and Analysis}
 
-here we will give the results of the experiments and mention why our scheme is so great
+The results we recorded are shown in Table \ref{secresults}. In the table, "prevented" means that
+the process execution is unharmed. "halted" means that the attack is detected but the process is
+terminated. "missed" means the attack was successful. We refer to each attack form by the number
+assigned to it in Section 4.1.1.
 
-present results in a tabular format I think 
+\begin{table}
+\begin{centering}
+\begin{tabular}{ |c|c|c|c| }
+\hline
+\textbf{Attack Form} & \textbf{ProPolice} & \textbf{Binary Rewriter} & \textbf{Unprotected Binary}
+\\
+\hline
+\hline
+1 (a) & halted & halted & missed \\
+\hline
+1 (b) & missed on <= O1/prevented > O1 & prevented & missed \\
+\hline
+1 (c) & prevented & halted & missed \\
+\hline
+1 (d) & prevented & halted & missed \\
+\hline
+1 (e) & prevented & halted & missed \\
+\hline
+1 (f) & missed & halted & missed \\
+\hline
+2 (a) & missed & halted & missed \\
+\hline
+2 (b) & missed & halted & missed \\
+\hline
+3 (a) & prevented & halted & missed \\
+\hline
+3 (b) & missed & prevented & missed \\
+\hline
+3 (c) & prevented & halted & missed \\
+\hline
+3 (d) & prevented & halted & missed \\
+\hline
+3 (e) & prevented & halted & missed \\
+\hline 
+3 (f) & prevented & halted & missed \\
+\hline
+4 (a) & missed & halted & missed \\
+\hline
+4 (b) & missed & prevented & missed \\
+\hline
+4 (c) & missed & halted & missed \\
+\hline
+4 (e) & missed & halted & missed \\
+\hline
 
-and then explain the results would be the best way to proceed I think....
+\par\end{centering}
+
+\caption{Results on the Wilander and Kamkar Benchmarks.}
+\label{secresults}
+
+\end{table}
+
+As can be seen from the results in Table \ref{secresults}, the security inserted by our binary
+rewriter surpasses what is achieved by the ProPolice mechanism in the GCC compiler.
 
 \section{Overheads}
 
@@ -110,9 +164,10 @@ compiled with GCC v4.4.1.
 
 \begin{table}
 \begin{center}
-\begin{tabular}{ | l | c | r | }
+\begin{tabular}{ | c | c | c | }
 \hline
 \textbf{Application} & \textbf{Source} & \textbf{Lines of C Source Code} \\
+\hline
 \hline
 perm & None & 56 \\
 \hline
