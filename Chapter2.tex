@@ -9,7 +9,8 @@ vulnerabilities in applications which present attackers with an opportunity to a
 chapter, we elaborate on some of the pieces of work most closely related to ours. First, we present
 the various attack techniques utilized by attackers that are relevant for this thesis and then we go
 on to present various techniques proposed for mitigating these attack techniques. When discussing
-defenses, we draw attention to the drawbacks of each technique.
+defenses, we draw attention to the drawbacks of each technique. We also briefly discuss related work
+in binary rewriting.
 
 \section{Catalog of Attack Techniques}
 
@@ -144,3 +145,35 @@ fact that unless it is supported by specialized hardware, it incurs significant 
 it is inlikely to see adoption in practice for the foreseeable future. However, when applied to
 interpreted languages (such as SQL), it can prove to be very effective. However, interpreted
 languages are not vulnerable to the buffer overflow attacks being discussed in this thesis.
+
+\section{Related Work in Binary Rewriting}
+
+Binary rewriting and link time optimizatizers have been considered by a number of researchers.
+Binary rewriting research is being carried out in two directions: static rewriting and dynamic
+rewriting. Dynamic binary rewriters rewrite the binary during its execution. Examples are PIN
+\cite{}, BIRD \cite{}, DynInst \cite{}, DynamoRIO \cite{} and Valgrind \cite{}. None of the dynamic
+binary rewriters we found employ a compiler like intermediate representation. This is not surprising
+since dynamic rewriters construct their internal representation at run-time, and hence they would
+not have the time to construct a compiler IR. Dynamic rewriters are hobbled since they do not have
+enough time to perform complex compiler transformations either; they have been primarily used for
+code instrumentation and simple security checks in the past. We do not discuss dynamic rewriters
+further since the methods used for rewriting in this thesis are primarily directed at static binary
+rewriters such as SecondWrite.
+
+Existing static binary rewriters related to our approach include Etch \cite{}, ATOM \cite{}, PLTO
+\cite{}, and Diablo \cite{}. None of the existing rewriters employ a compiler level intermediate
+representation; rather they define their own low-level custom intermediate representation. Diablo
+defines an augmented whole program control-flow-graph based intermediate representation with program
+registers as globals and memory as a black box. It does not attempt to obtain high-level information
+like function prototypes and is geared mainly towards optimizations like code compaction. Taking
+memory as a black box limits its applicability to architectures like x86 which have a limited set of
+registers. ATOM defines a symbolic RTL-based intermediate representation with infinite registers but
+does not make any attempt of analyzing or modifying the stack layout. Its mainly targeted towards
+RISC architectures. PLTO employs a whole program CFG based IR and implements stack analysis to
+determine the use-kill depths of each function \cite{}. However, this information is not used for
+converting it into high-level IR; rather it is only used for low-level custom optimizations like
+load/store forwarding. Etch does not explicitly build an intermediate representation build an
+intermediate representation and allows users to add new tools to analyze binaries. The primary goal
+of Etch appears to be instrumentation and has only been shown to be applicable for simple
+optimizations like profile-guided code layout.
+
