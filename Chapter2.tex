@@ -134,17 +134,37 @@ the ability to easily deploy these techniques.
 
 \subsection{Instruction Set Randomization}
 
-Instruction-set randomization \cite{} is a promising technique for protecting against buffer
+Instruction-set randomization \cite{isr} is a promising technique for protecting against buffer
 overflows (and many kinds of code injection attacks). This approach randomizes the underlying
 system's instructions so that foreign code injected by an attacker would fail to execute correctly
 since the attacker does not know the instruction set of the target system. However, as mentioned by
-the authors in \cite{}, the main drawback of this technique as applied to binary code that is meant
+the authors in \cite{isr}, the main drawback of this technique as applied to binary code that is meant
 to execute on a hardware processor is the need for special support by the processor. Thus, even
 though instruction-set randomization offers a strong defense against buffer overflow attacks the
 fact that unless it is supported by specialized hardware, it incurs significant overheads means that
 it is inlikely to see adoption in practice for the foreseeable future. However, when applied to
 interpreted languages (such as SQL), it can prove to be very effective. However, interpreted
 languages are not vulnerable to the buffer overflow attacks being discussed in this thesis.
+
+In \cite{strata}, the authors utilized Strata and Diablo to implement instruction set randomization.
+Diablo is used to prepare a binary for string encryption and introduce the information necessary to
+detect foreign code. Strata is then used to provide the necessary virtual execution environment for
+safe execution. The main contribution of this work is that the instruction-set randomization
+implementation is efficient while requiring no special hardware support. However, the runtime
+overheads reported are still high and likely to limit the practical adoption of such a system.
+
+\subsection{Address Space Layout Randomization}
+
+Address Space Layout Randomization (ASLR) can be seen as a relatively coarse grained form of
+software diversity \cite{aslr}. ASLR shuffles, or randomizes, the layout of software in the memory
+address space. It is effective at preventing remote attackers that have no existing means of running
+code on a target system from crafting attacks that depend on addresses. ASLR is not intended to
+defend against attackers that are able to control the software execution and its utility on 32-bit
+architectures is limited by the number of bits available for address randomization \cite{aslr32}.
+
+\subsection{Control Flow Integrity}
+
+\subsection{Program Sheperding}
 
 \section{Related Work in Binary Rewriting}
 
