@@ -164,7 +164,7 @@ architectures is limited by the number of bits available for address randomizati
 
 \subsection{Control Flow Integrity}
 
-Control Flow Integrity (CFI) \cite{cfi} is a basic safety property that can prevent attacks from
+Control Flow Integrity (CFI) \cite{cfi-05} is a basic safety property that can prevent attacks from
 arbitrarily controlling program behavior. CFI dictates that software execution must follow a path of
 a control-flow graph that is determined ahead of time by analysis (in this case, static binary
 analysis is performed). CFI is enforced using static verification and binary rewriting (with
@@ -172,11 +172,11 @@ Microsoft's Vulcan tool) that instruments software with runtime checks. These ch
 that control flow remains within a given control-flow-graph. CFI is a very effective defense against
 buffer overflow attacks (and any attack which attempts to change a program's control flow) since any
 attempt by an attacker to divert the control flow of a program will be caught by CFI. However, the
-main barrier to CFI's adoption seems to be the overhead associated with the scheme. In \cite{cfi},
+main barrier to CFI's adoption seems to be the overhead associated with the scheme. In \cite{cfi-05},
 the authors state that the average overhead of CFI (as implemented by them) is 16\% on the SPEC2000
 benchmarks. Also, the binary rewriter used by CFI depends on a binary being compiled with debug
 information which may not always be available. If a binary is not compiled with debug information
-then the implemenation of CFI in \cite{cfi} cannot be utilized.
+then the implemenation of CFI in \cite{cfi-05} cannot be utilized.
 
 \subsection{Program Sheperding}
 
