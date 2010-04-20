@@ -151,7 +151,7 @@ languages are not vulnerable to the buffer overflow attacks being discussed in t
 Binary rewriting and link time optimizatizers have been considered by a number of researchers.
 Binary rewriting research is being carried out in two directions: static rewriting and dynamic
 rewriting. Dynamic binary rewriters rewrite the binary during its execution. Examples are PIN
-\cite{}, BIRD \cite{}, DynInst \cite{}, DynamoRIO \cite{} and Valgrind \cite{}. None of the dynamic
+\cite{pin}, BIRD \cite{bird}, DynInst \cite{dyninst}, DynamoRIO \cite{drio} and Valgrind \cite{valg}. None of the dynamic
 binary rewriters we found employ a compiler like intermediate representation. This is not surprising
 since dynamic rewriters construct their internal representation at run-time, and hence they would
 not have the time to construct a compiler IR. Dynamic rewriters are hobbled since they do not have
@@ -160,8 +160,8 @@ code instrumentation and simple security checks in the past. We do not discuss d
 further since the methods used for rewriting in this thesis are primarily directed at static binary
 rewriters such as SecondWrite.
 
-Existing static binary rewriters related to our approach include Etch \cite{}, ATOM \cite{}, PLTO
-\cite{}, and Diablo \cite{}. None of the existing rewriters employ a compiler level intermediate
+Existing static binary rewriters related to our approach include Etch \cite{etch}, ATOM \cite{atom}, PLTO
+\cite{plto}, and Diablo \cite{Diablo1}. None of the existing rewriters employ a compiler level intermediate
 representation; rather they define their own low-level custom intermediate representation. Diablo
 defines an augmented whole program control-flow-graph based intermediate representation with program
 registers as globals and memory as a black box. It does not attempt to obtain high-level information
