@@ -150,6 +150,38 @@ ability for an attacker to perform an attack on a base pointer.
 
 \section{Return Address Protection}
 
+Given that stack canaries as inserted by LLVM do not provide the same level of protection as the
+ProPolice mechanism that comes with GCC, we decided to implement a more complete solution for
+protecting against corruption of the return address.
+
+The basic idea of our return address protection scheme is as follows:
+
+\begin{enumerate}
+
+ \item During the function prolog, store the return address of the current function in a global
+ variable
+
+ \item In function epilog, compare the current return address on the stack with the value saved in a
+ global variable
+
+ \item If there is any difference between these values, execution is halted
+
+\end{enumerate}
+
+This simple scheme will detect if the return address has been modified either directly or
+indirectly. One complication with this scheme is the fact that a global variable is used for storing
+the return address. If a separate global variable was created for each function, memory overhead
+would become quite high. One solution is to use an array of global variables of a bounded size for
+saving return values. However, if function nesting is deep as in recursive functions, issues can
+still occur.
+
+We applied an optimization for relieving this problem. We observed that this protection mechanism is
+only necessary if a function contains a write to a buffer. Thus, we analyze a function to look for
+any write to a buffer. If a function does not contain any write to a buffer then there is no need
+for the return address protection mechanism to be inserted. During our experimental evaluation of
+our scheme, we have not yet come across a recursive function, which could cause issues for our
+scheme, that required return address protection to be inserted.
+
 \section{Function Pointer Protection}
 
 \section{longjmp/setjmp Protection}
