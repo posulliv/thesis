@@ -130,7 +130,8 @@ arguments are not subject to corruption through an overflow of these buffers.
 
 StackGuard, PointGuard, and ProPolice involve compile-time analysis and transformation. Thus, unless
 the source code for an application is available, these techniques can not be used thereby hindering
-the ability to easily deploy these techniques.
+the ability to easily deploy these techniques. Our techniques do not suffer from this drawback since
+they can be easily deployed on any binary produced from any source language and compiler.
 
 \subsection{Instruction Set Randomization}
 
@@ -153,6 +154,11 @@ safe execution. The main contribution of this work is that the instruction-set r
 implementation is efficient while requiring no special hardware support. However, the runtime
 overheads reported are still high and likely to limit the practical adoption of such a system.
 
+A binary rewriter such as the one used for our research suffers from none of these issues. No
+special hardware is required in order to utilize a binary rewriter and overheads are relatively low.
+In fact, if an original binary was compiled without optimizations, it is likely to see a runtime
+improvement when rewritten.
+
 \subsection{Address Space Layout Randomization}
 
 Address Space Layout Randomization (ASLR) can be seen as a relatively coarse grained form of
@@ -161,6 +167,9 @@ address space. It is effective at preventing remote attackers that have no exist
 code on a target system from crafting attacks that depend on addresses. ASLR is not intended to
 defend against attackers that are able to control the software execution and its utility on 32-bit
 architectures is limited by the number of bits available for address randomization \cite{aslr32}.
+
+A binary rewriter could easily be used to provide a similar defense mechanism as ASLR. In fact, an
+interesting future avenue of research is to investigate software diversity through binary rewriting.
 
 \subsection{Control Flow Integrity}
 
@@ -178,7 +187,22 @@ benchmarks. Also, the binary rewriter used by CFI depends on a binary being comp
 information which may not always be available. If a binary is not compiled with debug information
 then the implemenation of CFI in \cite{cfi-05} cannot be utilized.
 
+Our schemes implemented through our binary rewriter can provide the same level of protection as CFI.
+An additional advantage of our scheme is that our binary rewriter does not require access to any
+special information in an input binary unlike the binary rewriter used in CFI which requires access
+to debug information.
+
 \subsection{Program Sheperding}
+
+Program sheperding employs an efficient machine-code interpreter (DynamoRIO \cite{drio}) for
+implementing a security enforcement mechanism. A broad class of security policies can be implemented
+using a machine interpreter such as DynamoRIO. For example, DynamoRIO could be used to enforce
+control-flow integrity. Program shepherding enforces a similar policy that imposes certain runtime
+restrictions on control flow such that an attacker can not alter a program's flow of control.
+
+Program sheperding can experience significant memory and runtime overheads, particularly on the
+Windows platform. The scheme requires an application and interpreter to be run simultaneously. The
+high overheads in some cases are likely to limit adoption of program sheperding.
 
 \section{Related Work in Binary Rewriting}
 
@@ -211,3 +235,44 @@ intermediate representation and allows users to add new tools to analyze binarie
 of Etch appears to be instrumentation and has only been shown to be applicable for simple
 optimizations like profile-guided code layout.
 
+\section{Summary}
+
+Current defenses have a number of weaknesses:
+
+\begin{itemize}
+
+\item They are not easily deployable
+
+  \begin{itemize}
+  \item Source code for an application is required
+  \item An application needs to be compiled with certain information
+  \item Hardware support is required
+  \end{itemize}
+
+\item Most are not readily available for use and evaluation
+
+\item Some suffer from un-acceptable overheads
+
+\item No scheme is immediately applicable to all binaries
+
+\end{itemize}
+
+Using the novel binary rewriting techniques developed within our research group, we have developed a
+scheme with the following characteristics:
+
+\begin{itemize}
+
+\item It is immediately deployable
+
+\item It is applicable to any binary
+
+\item Access to an application's source code is not required
+
+\item An application does not need to be compiled in any way such that it contains special
+information e.g. debug or relocation information
+
+\item It has low overheads
+
+\item Many common stack-based buffer overflow attacks are prevented
+
+\end{itemize}
