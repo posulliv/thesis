@@ -184,4 +184,33 @@ scheme, that required return address protection to be inserted.
 
 \section{Function Pointer Protection}
 
+One common attack method used by attackers is to overwrite a function pointer so that when it is
+de-referenced, code of the attacker's choosing will be executed. In a binary executable, function
+pointers will appear as indirect calls. Thus, another component of our scheme concentrates on
+protecting all indirect calls and branches.
+
+We have a scheme implemented which works correctly as will be seen in the experimental results
+chapter. However, research within our group is currently ongoing that will convert all indirect
+calls and branches in a binary to direct calls and branches. We will discuss how this affects our
+scheme after first describing what we have implemented.
+
+Our initial scheme adds checking code before all indirect calls and branches. A global variable is
+declared in the data segment and its address is used as a boundary value. The checks inserted before
+any indirect call or branch ensure that the target of the indirect call or branch points to memory
+below the address of the global boundary variable. If the target points above the address of this
+global bondary variable then execution is halted.
+
+With the new research occuring within our group, there will be no need to insert checks into a
+binary. Basically, an indirect call in an input binary will be replaced by a large switch statement.
+This switch statement will contain a number of cases which are direct calls. SecondWrite will
+determine by analysis what all the valid targets of this indirect call are and each valid target
+will be a case in the switch statement. Thus, if at runtime, the target is not valid, execution will
+be abort. 
+
 \section{longjmp/setjmp Protection}
+
+\section{Summary}
+
+In this chapter, we gave an overview of the binary rewriter developed within our group. We also
+described each of the individual components which make up our protection scheme. Together, these
+components can provide a high level of protection as demonstrated in the next chapter.
