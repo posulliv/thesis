@@ -109,7 +109,44 @@ those techniques in this thesis as the techniques are explained in detail elsewh
 
 \section{Stack Canary Insertion}
 
-\section{Base Pointer Removal}
+The first component of our scheme is the simplest. LLVM provides the ability to insert stack
+canaries during code generation. Utilizing this capability from LLVM allows us to easily provide the
+same level of protection to an un-protected binary as StackGuard would provide when given an
+application's source code.
+
+Essentially, a random canary value is generated and placed on the stack during a function's prolog.
+In the function epilog, the value stored on the stack is compared with the random canary value for
+this process. If there is any difference, execution is halted as the canary value has been
+corrupted.
+
+While this component of our scheme is simple, it demonstrates a key advantage of SecondWrite. By
+translating the input binary to LLVM's high-level intermediate representation, we were able to take
+advantage of features LLVM already provides. Thus, to achieve the same level of protection as
+StackGuard, we had to do very little once the binary was translated to LLVM's IR.
+
+\section{Base Pointer Elimination}
+
+The next component of our scheme is again due to existing LLVM optimizations. LLVM is an optimizing
+compiler and the binaries produced by LLVM are highly optimized. One common optimization applied by
+modern compilers on the x86 platform is to free up the EBP register for register allocation by
+removing the base (or frame) pointer.
+
+Eliminating the base pointer also removes the ability for an attacker to craft an attack by
+modifying the old base pointer stored in a stack frame. In a binary which has not been compiled at a
+high optimization level, base pointers may still be used. In this case, the value of the base
+pointer will be pushed on the stack upon function entry in order for the value to be restored on
+function return. If an attacker is able to modify the value of the base pointer, he/she could have a
+fake stack frame they created be used thereby allowing the attacker to alter the flow of control of
+the program.
+
+When the base pointer is eliminated by LLVM, any attack of this form is immediately prevented. There
+will be no base pointer for an attacker to modify. While corruption of the stack may still occur if
+an attacker overflows a buffer in order to attempt to overwrite the base pointer, no attack will be
+successful.
+
+Again, the elimination of the base pointer highlights the advantages of SecondWrite. By utilizing an
+existing compiler framework, we are able to produce highly optimized binaries which eliminate the
+ability for an attacker to perform an attack on a base pointer.
 
 \section{Return Address Protection}
 
