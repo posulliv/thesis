@@ -2,6 +2,16 @@
 
 \renewcommand{\thechapter}{5}
 
-\chapter{Conclusion}
+\chapter{Conclusions and Future Work}
 
-This will be the conlusion...
+We presented a scheme developed using binary rewriting that can defend against a number of buffer
+overflow attacks. Our scheme is practical and easy to deploy with the only factor limiting
+deployment right now is maturity of the binary rewriter.
+
+We demonstrated the effectiveness of our scheme using the benchmarks developed by Wilander and
+Kamkar by successfully defending against all attack methods in those benchmarks. A real-world attack
+ on a lightweight HTTP server was also mitigated using our scheme.
+
+Future work involves extending the binary rewriter to work on larger binaries and testing against
+more real-world attacks. Interesting avenues for future research are software diversification with
+a binary rewriter and self-healing techniques with binary rewriting.
