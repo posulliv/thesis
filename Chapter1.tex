@@ -22,15 +22,39 @@ applicability of such schemes depends on a number of factors, including:
  \item Low overheads
 \end{enumerate}
 
-In addition to a scheme's applicability, the scheme must also satisfy a number of criteria related
-to its effectiveness in regards to what attacks it can prevent, including:
+In this thesis, we present a scheme which meets the applicability requirements for a good security
+scheme. Our scheme is implemented using a binary rewriter developed within our research group named
+SecondWrite. A binary rewriter takes a binary executable program as input, and produces a modified,
+improved executable as output. 
+
+Two of the novel aspects of SecondWrite are: 1) the input binary is translated into an existing
+compiler's intermediate representation (IR); and 2) binaries without relocation or symbolic
+information can be rewritten. 
+
+The ability to translate a binary to a high-level IR allows SecondWrite to insert security
+mechanisms that would otherwise require access to source code. Using a rewriter to insert security in a binary is important for
+consumers/users of software, who are otherwise at the mercy of the vendor when it comes to using
+security mechanisms or fixing known problems (patch management). With a binary rewriter, an
+administrator can (in principle) modify a binary to fix or mitigate a vulnerability. 
+
+\section{Contributions}
+
+The contributions of this thesis are primarily in demonstrating a key application of binary
+rewriting. To this end, this thesis makes two major contributions:
 
 \begin{enumerate}
- \item Over-writing of the return address stored on the stack
- \item Over-writing of the old base pointer stored on the stack
- \item Over-writing of local function pointer variables on the stack
- \item Over-writing of function pointer parameters on the stack
+
+ \item A scheme is presented for protecting against commong buffer overflow attacks using a
+ sophisticated and novel static binary rewriter
+
+ \item The scheme presented is practical, effective, and immediately deployable
+
 \end{enumerate}
 
-In this thesis, we present a scheme which meets the applicability requirements and the criteria for
-a good security scheme as laid out above.  
+\section{Outline}
+
+In Chapter 2, we discuss some of the common attack forms and survey existing defenses for these
+attacks. We also briefly discuss some previous work in the field of binary rewriting. In Chapter 3,
+we describe how our binary rewriter works and how the various components of our scheme are
+implemented. In Chapter 4, we present experimental results which demonstrate the practicality of our
+scheme. Finally, in Chapter 5, we present our conclusions and discuss directions for future work.
