@@ -209,6 +209,45 @@ be abort.
 
 \section{longjmp/setjmp Protection}
 
+The paired functions \begin{em}setjmp\end{em} and \begin{em}longjmp\end{em} provide a means to alter
+a program's control flow besides the usual subroutine call and return sequence. First,
+\begin{em}setjmp\end{em} saves the environment of the calling function into a data structure, and
+then \begin{em}longjmp\end{em} can use this structure to jump back to the point it was created, at
+the \begin{em}setjmp\end{em} call. A typical use for
+\begin{em}setjmp\end{em}/\begin{em}longjmp\end{em} is exception handling.
+
+The data structure used by \begin{em}setjmp\end{em} for saving the execution state is referred to as a
+\begin{em}jmp\_buf\end{em}. Within this structure, enough information is stored to restore a calling
+environment. In particular, one member of this structure saves the value of the program counter
+which is used when restoring the calling environment.
+
+An attack method used by attackers is to overwrite the value of the member of a
+\begin{em}jmp\_buf\end{em} structure after a call to \begin{em}setjmp\end{em} and before a call to
+\begin{em}longjmp\end{em}. If an attacker has the ability to change the value of the program counter
+member of the \begin{em}jmp\_buf\end{em} structure then when \begin{em}longjmp\end{em} is called,
+control will be transferred to an address of the attacker's choosing.
+
+Our method for dealing with attacks of this kind is as follows:
+
+\begin{itemize}
+
+ \item create a hash table within the global segment of the rewritten binary.
+ \item after a call to \begin{em}setjmp\end{em} use the current value of the program counter member
+ of the \begin{em}jmp\_buf\end{em} structure as the key to the hash table.
+ \item before a call to \begin{em}longjmp\end{em} get the current value of the
+ \begin{em}jmp\_buf\end{em} structure that will be used. Attempt to perform a lookup in the hash
+ table for the value of the program counter.
+ \item if the lookup in the hash table fails, then the value of the program counter has been
+ modified and so we abort; otherwise execution continues
+
+\end{itemize}
+
+For now, the hash table created is of a fixed size. We have not experimented with binaries that have
+many calls to \begin{em}setjmp\end{em} and \begin{em}longjmp\end{em}. 
+
+The above scheme effectively mitigates attacks of this kind as demonstrated in the experimental
+results section.
+
 \section{Summary}
 
 In this chapter, we gave an overview of the binary rewriter developed within our group. We also
