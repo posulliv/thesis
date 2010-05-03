@@ -26,7 +26,7 @@ size is referred to as a buffer overflow.
 If an attacker controls the data used by the function, attackers can exploit buffer overflows and
 change the function's return address to an arbitrary value. In this case, when the function returns,
 the attacker can direct execution to code of their choice. This technique was first described in
-detail by AlephOne in 1996 \cite{}. However, attacks of this kind date back to before 1988 when the
+detail by AlephOne in 1996 \cite{one1996}. However, attacks of this kind date back to before 1988 when the
 technique was used in the \begin{em}fingerd\end{em} exploit of the Morris worm.
 
 An example of a function with a buffer overflow vulnerability adopted from \cite{erlingsson-07} follows:
@@ -60,12 +60,12 @@ control.
 
 As an alternative to supplying executable code (referred to as direct code injection), an attacker
 might be able to craft an attack that executes existing machine code (indirect code injection). This
-class of attacks has been referred to as jump-to-libc or return-to-libc (arc injection \cite{} has
+class of attacks has been referred to as jump-to-libc or return-to-libc (arc injection \cite{cowan2000buffer} has
 also been used to refer to this class of attacks) because the attack often involves directing
-execution towards machine code in the standard C library (libc) \cite{}. The standard C library is
+execution towards machine code in the standard C library (libc) \cite{cowan2000buffer}. The standard C library is
 often the target for attacks of this type since it is loaded in nearly every UNIX program and it
 contains routines of the sort that are useful for an attacker. This technique was first suggested by
-Solar Designer in 1997 \cite{}. Attacks of this kind can evade defense mechanisms that protect the
+Solar Designer in 1997 \cite{designer1997return}. Attacks of this kind can evade defense mechanisms that protect the
 stack such as stack canaries and it is also effective against defenses that only allow memory to be
 writable or executable.
 
@@ -98,7 +98,7 @@ demonstrated which do not depend on calling functions in the standard C library.
 
 \subsection{Return-Orientated Programming}
 
-The technique of return-oreintated programming was introduced by Shacham et al \cite{}. Using this
+The technique of return-oreintated programming was introduced by Shacham \cite{shacham2007geometry}. Using this
 technique, an attacker can induce arbitrary behavior in a program whose control flow he/she has
 diverted without injecting any code. A return-orientated program chains together short instruction
 sequences already present in a program's address space, each of which ends in a return instruction.
@@ -107,7 +107,7 @@ return-orientated program that performs operations. Gadgets are self-contained a
 well-defined step of a computation. An attacker uses these gadgets to craft stack frames that can
 then perform arbitrary computations. 
 
-Shacham et al. showed that the standard C library in both Linux running on the x86 platform and
+Shacham et al. \cite{buchanan2008good} showed that the standard C library in both Linux running on the x86 platform and
 Solaris running on the SPARC platform contain enough useful intructions to construct meaningful
 gadgets. They manually analyzed the standard C library on both platforms and constructed a library
 of gadgets that is Turing complete.
@@ -122,7 +122,7 @@ integrity of the canary value is an effective means of ensuring that the functio
 not been corrupted. Microsoft's compiler also supports the insertion of stack canaries with the /GS
 option.
 
-ProPolice \cite{} is similar to StackGuard in that it places a canary value on the stack. However,
+ProPolice \cite{eto2002propolice} is similar to StackGuard in that it places a canary value on the stack. However,
 ProPolice also places arrays and other function-local buffers above all other function-local
 variables on the stack. Copies of all function arguments are also made into new, function-local
 variables that also sit below any buffers in the function. As a result, these variables and
@@ -228,7 +228,7 @@ memory as a black box limits its applicability to architectures like x86 which h
 registers. ATOM defines a symbolic RTL-based intermediate representation with infinite registers but
 does not make any attempt of analyzing or modifying the stack layout. Its mainly targeted towards
 RISC architectures. PLTO employs a whole program CFG based IR and implements stack analysis to
-determine the use-kill depths of each function \cite{}. However, this information is not used for
+determine the use-kill depths of each function. However, this information is not used for
 converting it into high-level IR; rather it is only used for low-level custom optimizations like
 load/store forwarding. Etch does not explicitly build an intermediate representation build an
 intermediate representation and allows users to add new tools to analyze binaries. The primary goal
